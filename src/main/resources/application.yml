@@ -1,0 +1,51 @@
+server:
+  port: 8081
+  session-timeout: 1800
+
+spring:
+  #   spring thymeleaf网页相关配置
+  thymeleaf:
+    mode: LEGACYHTML5
+    cache: false
+
+  #   数据传输配置
+  jackson:
+    time-zone: GMT+8
+    date-format: yyyy-MM-dd HH:mm:ss
+
+  #   文件传输大小设置
+  servlet:
+    multipart:
+      max-request-size: 30MB
+      max-file-size: 30MB
+  #   开发环境热部署设置
+  devtools:
+    restart:
+      enabled: true
+
+  #   缓存设置
+  cache:
+    type: ehcache
+    ehcache:
+      config: classpath:config/ehcache.xml
+  #   springMVC配置
+  mvc:
+    date-format: yyyy-MM-dd
+    favicon:
+      enabled: true
+    view:
+      prefix: static
+      suffix: .html
+
+  profiles:
+    active: dev
+
+logging:
+  level:
+    com.yyb.springbootmybatisplus: debug
+
+mybatis-plus:
+  configLocation:
+  mapper-locations: mybatis/**/*Mapper.xml
+  type-aliases-package: com.yyb.springbootmybatisplus.*.model
+
